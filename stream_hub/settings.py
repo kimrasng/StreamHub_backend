@@ -17,10 +17,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False 
 
-ALLOWED_HOSTS = csv_to_list(config(
-    'ALLOWED_HOSTS',
-    default='localhost,127.0.0.1,0.0.0.0,testserver,backend,boji.monster,streamhub.kimrasng.kr,linko.one'
-))
+# Allow all hosts (be careful in production)
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -136,7 +134,11 @@ DEFAULT_CORS = (
 CORS_ALLOWED_ORIGINS = csv_to_list(config('CORS_ALLOWED_ORIGINS', default=DEFAULT_CORS))
 
 
-CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default='False', cast=bool)
+# Force CORS to allow all origins (be careful in production)
+CORS_ALLOW_ALL_ORIGINS = True
+# If you keep using env var, you can override with:
+# CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default='True', cast=bool)
+
 CORS_ALLOW_CREDENTIALS = config('CORS_ALLOW_CREDENTIALS', default='True', cast=bool)
 
 DEFAULT_CSRF = (
