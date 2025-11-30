@@ -42,8 +42,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -134,6 +134,10 @@ DEFAULT_CORS = (
     'https://boji.monster,https://streamhub.kimrasng.kr,https://linko.one'
 )
 CORS_ALLOWED_ORIGINS = csv_to_list(config('CORS_ALLOWED_ORIGINS', default=DEFAULT_CORS))
+
+
+CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default='False', cast=bool)
+CORS_ALLOW_CREDENTIALS = config('CORS_ALLOW_CREDENTIALS', default='True', cast=bool)
 
 DEFAULT_CSRF = (
     'http://localhost:5173,http://127.0.0.1:5173,http://frontend,http://frontend:5173,'
