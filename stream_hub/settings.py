@@ -19,7 +19,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = csv_to_list(config(
     'ALLOWED_HOSTS',
-    default='localhost,127.0.0.1,0.0.0.0,testserver,backend,boji.monster,kimrasng.kr,linko.one'
+    default='localhost,127.0.0.1,0.0.0.0,testserver,backend,boji.monster,streamhub.kimrasng.kr,linko.one'
 ))
 
 
@@ -130,16 +130,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # For development only. Change this in production.
 DEFAULT_CORS = (
     'http://localhost:5173,http://127.0.0.1:5173,http://frontend,http://frontend:5173,'
-    'http://boji.monster,http://kimrasng.kr,http://linko.one,'
-    'https://boji.monster,https://kimrasng.kr,https://linko.one'
+    'http://boji.monster,http://streamhub.kimrasng.kr,http://linko.one,'
+    'https://boji.monster,https://streamhub.kimrasng.kr,https://linko.one'
 )
 CORS_ALLOWED_ORIGINS = csv_to_list(config('CORS_ALLOWED_ORIGINS', default=DEFAULT_CORS))
 
 DEFAULT_CSRF = (
     'http://localhost:5173,http://127.0.0.1:5173,http://frontend,http://frontend:5173,'
     'http://localhost:8000,http://127.0.0.1:8000,http://backend:8000,http://0.0.0.0:8000,'
-    'http://boji.monster,http://kimrasng.kr,http://linko.one,'
-    'https://boji.monster,https://kimrasng.kr,https://linko.one'
+    'http://boji.monster,http://streamhub.kimrasng.kr,http://linko.one,'
+    'https://boji.monster,https://streamhub.kimrasng.kr,https://linko.one'
 )
 CSRF_TRUSTED_ORIGINS = csv_to_list(config('CSRF_TRUSTED_ORIGINS', default=DEFAULT_CSRF))
 
